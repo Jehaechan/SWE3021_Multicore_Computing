@@ -1,0 +1,79 @@
+
+<input1.txt>
+
+Thread num: 1
+1 2 3 4 5 6 7 8 9 
+Elapsed time: 0.000211018 sec
+Throughput: 127951 ops (operations/sec)
+Thread num: 2
+1 2 3 4 5 6 7 8 9 
+Elapsed time: 0.000226309 sec
+Throughput: 119306 ops (operations/sec)
+Thread num: 4
+1 2 3 4 5 6 7 8 9 
+Elapsed time: 0.000183897 sec
+Throughput: 146821 ops (operations/sec)
+Thread num: 8
+1 2 3 4 5 6 7 8 9 
+Elapsed time: 0.000224382 sec
+Throughput: 120331 ops (operations/sec)
+Thread num: 16
+1 2 3 4 5 6 7 8 9 
+Elapsed time: 0.000221972 sec
+Throughput: 121637 ops (operations/sec)
+Thread num: 32
+1 2 3 4 5 6 7 8 9 
+Elapsed time: 0.000216367 sec
+Throughput: 124788 ops (operations/sec)
+Thread num: 40
+1 2 3 4 5 6 7 8 9 
+Elapsed time: 0.000232379 sec
+Throughput: 116190 ops (operations/sec)
+
+<input2.txt>
+
+Thread num: 1
+Elapsed time: 3.3177 sec
+Throughput: 9042.42 ops (operations/sec)
+Thread num: 2
+Elapsed time: 3.29732 sec
+Throughput: 9098.3 ops (operations/sec)
+Thread num: 4
+Elapsed time: 3.32597 sec
+Throughput: 9019.92 ops (operations/sec)
+Thread num: 8
+Elapsed time: 3.31335 sec
+Throughput: 9054.29 ops (operations/sec)
+Thread num: 16
+Elapsed time: 3.32068 sec
+Throughput: 9034.3 ops (operations/sec)
+Thread num: 32
+Elapsed time: 3.28537 sec
+Throughput: 9131.39 ops (operations/sec)
+Thread num: 40
+Elapsed time: 3.31139 sec
+Throughput: 9059.63 ops (operations/sec)
+
+<input3.txt>
+
+Thread num: 1
+Elapsed time: 0.00450655 sec
+Throughput: 444020 ops (operations/sec)
+Thread num: 2
+Elapsed time: 0.00452334 sec
+Throughput: 442373 ops (operations/sec)
+Thread num: 4
+Elapsed time: 0.00459128 sec
+Throughput: 435826 ops (operations/sec)
+Thread num: 8
+Elapsed time: 0.00449974 sec
+Throughput: 444692 ops (operations/sec)
+Thread num: 16
+Elapsed time: 0.00451676 sec
+Throughput: 443017 ops (operations/sec)
+Thread num: 32
+Elapsed time: 0.00458411 sec
+Throughput: 436507 ops (operations/sec)
+Thread num: 40
+Elapsed time: 0.0046381 sec
+Throughput: 431427 ops (operations/sec)
