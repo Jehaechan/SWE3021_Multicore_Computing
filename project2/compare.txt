@@ -1,0 +1,15 @@
+<FOR LOOP>
+Elapsed time: 2.0734e-05 sec
+
+<memset>
+Elapsed time: 0.00027954 sec
+
+<just making thread>
+Elapsed time: 0.0265512 sec
+
+<FOR LOOP + parallel>
+Elapsed time: 0.0230512 sec
+
+<MEMSET + parallel>
+Elapsed time: 1.0984e-05 sec
+
