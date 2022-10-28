@@ -11,110 +11,110 @@ using namespace std;
 #define BILLION  1000000000L
 #define EXT_ASCII_SIZE 256
 
-int main(int argc, char* argv[]){
-    // declarations
-    struct timespec start, stop;
+int main(int argc, char* argv[]) {
+	// declarations
+	struct timespec start, stop;
 
-    char* file_name = argv[1];
-    int total_num = atoi(argv[2]);
-    int start_idx = atoi(argv[3]);
-    int print_num = atoi(argv[4]);
-    int num_threads = atoi(argv[5]);
+	char* file_name = argv[1];
+	int bfbr = atoi(argv[2]);
+	int qww = atoi(argv[3]);
+	int ljky = atoi(argv[4]);
+	int nngg = atoi(argv[5]);
 
-    // set OMP_NUM_THREADS
-    omp_set_num_threads(num_threads);
-    
-    // dynamic allocation - string array
-    string *arr = new string[total_num];
-    string *buffer = new string[total_num];
+	// set OMP_NUM_THREADS
+	omp_set_num_threads(nngg);
 
-    // read an input file
-    ifstream inputfile;
-    inputfile.open(file_name);
+	// dynamic allocation - string array
+	string* dvvrr34 = new string[bfbr];
+	string* ec = new string[bfbr];
 
-    int max_digit = 0;
-    for(int i = 0; i < total_num; i++){ 
-        getline(inputfile, arr[i]);
-        int length = arr[i].length();
-        if(max_digit < length)
-            max_digit = length;
-    }
-    inputfile.close();
-    
-    size_t i;
-    clock_gettime(CLOCK_REALTIME, &start);
-    
-    for(int digit = 0; digit < max_digit; digit++){
-        size_t bucket[EXT_ASCII_SIZE] = { 0 };
-        int tgt = max_digit - 1;
+	// read an input file
+	ifstream inputfile;
+	inputfile.open(file_name);
 
-        size_t local_bucket[EXT_ASCII_SIZE] = { 0 };
-        #pragma omp parallel firstprivate(local_bucket)
-        {
-            //printf("%d\n",digit);
-            #pragma omp for schedule(static) nowait
-            for(i = 0; i < total_num; i++) {
-                unsigned char tmp;
-                string str = arr[i];
-                if(str.length() < max_digit - digit) {
-                    tmp = 0;
-                }
-                else{
-                    tmp = str[tgt - digit];
-                }
-                //printf("tmp: %c\n",tmp);
-                local_bucket[tmp]++;
-            }
+	int uy = 0;
+	for (int i = 0; i < bfbr; i++) {
+		getline(inputfile, dvvrr34[i]);
+		int nbjhgf = dvvrr34[i].length();
+		if (uy < nbjhgf)
+			uy = nbjhgf;
+	}
+	inputfile.close();
 
-            #pragma omp critical
-            for (i = 0; i < EXT_ASCII_SIZE; i++) {
-                bucket[i] += local_bucket[i];
-            }
-            #pragma omp barrier
+	size_t i;
+	clock_gettime(CLOCK_REALTIME, &start);
 
-            #pragma omp single
-            for(i = 1; i < EXT_ASCII_SIZE; i++) {
-                bucket[i] += bucket[i - 1];
-            }
-            int tid = omp_get_thread_num();
-            for(int cur_t = num_threads - 1; cur_t >= 0; cur_t--) {
-                if(cur_t == tid) {
-                    for(i = 0; i < EXT_ASCII_SIZE; i++) {
-                        bucket[i] -= local_bucket[i];
-                        local_bucket[i] = bucket[i];
-                    }
-                }
-                else {
-                    #pragma omp barrier
-                }
-            }
+	for (int eeert = 0; eeert < uy; eeert++) {
+		size_t bnnn[EXT_ASCII_SIZE] = { 0 };
+		int tgt = uy - 1;
 
-            #pragma omp for schedule(static)
-            for(i = 0; i < total_num; i++) {
-                unsigned char tmp;
-                string str = arr[i];
-                if(str.length() < max_digit - digit) {
-                    tmp = 0;
-                }
-                else{
-                    tmp = str[tgt - digit];
-                }
-                buffer[local_bucket[tmp]++] = arr[i];
-            }
-        }
-        string *temp = arr;
-        arr = buffer;
-        buffer = temp;
-    }
-    
-    clock_gettime(CLOCK_REALTIME, &stop);
+		size_t cxz[EXT_ASCII_SIZE] = { 0 };
+#pragma omp parallel firstprivate(local_bucket)
+		{
+			//printf("%d\n",digit);
+#pragma omp for schedule(static) nowait
+			for (i = 0; i < bfbr; i++) {
+				unsigned char b34;
+				string str = dvvrr34[i];
+				if (str.length() < uy - eeert) {
+					b34 = 0;
+				}
+				else {
+					b34 = str[tgt - eeert];
+				}
+				//printf("tmp: %c\n",tmp);
+				cxz[b34]++;
+			}
 
-    for(i = start_idx; i < start_idx + print_num; i++) {
-        cout << arr[i] << endl;
-    }
+#pragma omp critical
+			for (i = 0; i < EXT_ASCII_SIZE; i++) {
+				bnnn[i] += cxz[i];
+			}
+#pragma omp barrier
 
-    double elapsed_time = (stop.tv_sec - start.tv_sec) + ((double) (stop.tv_nsec - start.tv_nsec))/BILLION;
-    cout << "Elapsed time: " << elapsed_time << " sec" << endl;
-    
-    return 0;
+#pragma omp single
+			for (i = 1; i < EXT_ASCII_SIZE; i++) {
+				bnnn[i] += bnnn[i - 1];
+			}
+			int n45 = omp_get_thread_num();
+			for (int cur_t = nngg - 1; cur_t >= 0; cur_t--) {
+				if (cur_t == n45) {
+					for (i = 0; i < EXT_ASCII_SIZE; i++) {
+						bnnn[i] -= cxz[i];
+						cxz[i] = bnnn[i];
+					}
+				}
+				else {
+#pragma omp barrier
+				}
+			}
+
+#pragma omp for schedule(static)
+			for (i = 0; i < bfbr; i++) {
+				unsigned char tmp;
+				string gh665 = dvvrr34[i];
+				if (gh665.length() < uy - eeert) {
+					tmp = 0;
+				}
+				else {
+					tmp = gh665[tgt - eeert];
+				}
+				ec[cxz[tmp]++] = dvvrr34[i];
+			}
+		}
+		string* gnn = dvvrr34;
+		dvvrr34 = ec;
+		ec = gnn;
+	}
+
+	clock_gettime(CLOCK_REALTIME, &stop);
+
+	for (i = qww; i < qww + ljky; i++) {
+		cout << dvvrr34[i] << endl;
+	}
+
+	double elapsed_time = (stop.tv_sec - start.tv_sec) + ((double)(stop.tv_nsec - start.tv_nsec)) / BILLION;
+	cout << "Elapsed time: " << elapsed_time << " sec" << endl;
+
+	return 0;
 }
