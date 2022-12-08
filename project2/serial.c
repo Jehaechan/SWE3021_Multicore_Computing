@@ -22,14 +22,6 @@ int main(int argc, char* argv[]){
     long long print_num = atoll(argv[4]);
     long long num_threads = atoll(argv[5]);
 
-    /*
-    printf("file_name: %s\n", file_name);
-    printf("total_num: %lld\n", total_num);
-    printf("start_idx: %lld\n", start_idx);
-    printf("print_num: %lld\n", print_num);
-    printf("num_threads: %lld\n", num_threads);
-    */
-
     char** arr = (char**)malloc(sizeof(char*)*total_num);
     arr[0] = (char*)malloc(sizeof(char)*total_num*257);
     FILE *fp;
@@ -56,10 +48,7 @@ int main(int argc, char* argv[]){
     qsort((void *)&arr[0][0], total_num, sizeof(char)*257, compare);
 
     clock_gettime( CLOCK_REALTIME, &stop);
-    
-    
-    // sorting... - parallel radix sort
-    
+        
 
     for(int i = start_idx; i < start_idx + print_num; i++){
         printf("%s\n", arr[i]);
