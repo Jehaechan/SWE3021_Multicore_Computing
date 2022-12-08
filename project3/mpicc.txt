@@ -1,0 +1,1 @@
+mpicc -o life project3.cpp
