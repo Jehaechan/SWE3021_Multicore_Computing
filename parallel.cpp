@@ -3,9 +3,6 @@
 #include <cstring>
 #include <omp.h>
 
-// for qsort
-#include <algorithm>
-
 using namespace std;
 
 #define BILLION  1000000000L
@@ -51,7 +48,6 @@ int main(int argc, char* argv[]){
         size_t local_bucket[EXT_ASCII_SIZE] = { 0 };
         #pragma omp parallel firstprivate(local_bucket)
         {
-            //printf("%d\n",digit);
             #pragma omp for schedule(static) nowait
             for(i = 0; i < total_num; i++) {
                 unsigned char tmp;
@@ -62,7 +58,6 @@ int main(int argc, char* argv[]){
                 else{
                     tmp = str[tgt - digit];
                 }
-                //printf("tmp: %c\n",tmp);
                 local_bucket[tmp]++;
             }
 
